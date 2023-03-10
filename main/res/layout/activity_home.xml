@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".HomeActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add a food item"
+            android:textAlignment="center"
+            android:textColor="#0B0A0A"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/foodNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Food name"
+            android:minHeight="48dp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/portionSizeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Portion size (in grams)"
+            android:minHeight="48dp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/caloriesPer100gEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Calories per 100g"
+            android:minHeight="48dp"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/addFoodButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:onClick="addFoodItem"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculate total calories"
+            android:textAlignment="center"
+            android:textColor="#090606"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/totalCaloriesTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total calories: 0"
+            android:textSize="24sp"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/calculateCaloriesButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculate"
+            android:onClick="calculateTotalCalories"
+            android:layout_marginTop="20dp"/>
+
+
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:layout_marginTop="90dp"/>
+
+
+</LinearLayout>

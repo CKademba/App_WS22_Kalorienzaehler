@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ProfileActivity">
+
+    <TextView
+        android:id="@+id/textViewProfile"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginBottom="72dp"
+        android:text="Profile"
+        android:textAlignment="center"
+        android:textColor="#0B0A0A"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvHeight"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:text="Height:"
+            android:textColor="#090808"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/textViewHeight"
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#090808"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:text="Gender:"
+            android:textColor="#090707"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/textViewGender"
+            android:layout_width="88dp"
+            android:layout_height="match_parent"
+            android:text="TextView"
+            android:textColor="#090707"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:text="Age:"
+            android:textColor="#090606"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/textViewAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#090606"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvWeight"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:text="Weight:"
+            android:textColor="#090606"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/textViewWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#090606"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvActivity"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:text="Activity:"
+            android:textColor="#090606"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/textViewActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#090606"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tvGoal"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:text="Goal:"
+            android:textColor="#090606"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/textViewGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#090606"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewKcal"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"
+            android:text="Kcal:"
+            android:textColor="#090606"
+            android:textSize="16sp"
+           />
+
+        <TextView
+            android:id="@+id/tvKcal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="TextView"
+            android:textColor="#090606"
+            android:textSize="16sp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:layout_marginTop="90dp"/>
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:layout_marginTop="90dp"
+            android:layout_marginLeft="160dp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

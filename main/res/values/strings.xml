@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Kalorienbedarfrechnen</string>
+    <string name="your_age">Your Age</string>
+    <string name="in_years">in Years</string>
+    <string name="kaloriendedarf">Kaloriendedarf</string>
+    <string name="your_height">Your Height</string>
+    <string name="in_cm">in cm</string>
+    <string name="in_kg">in Kg</string>
+    <string name="your_weigtht">Your Weigtht</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="activity_level">Activity Level</string>
+    <string name="sedentary">Sedentary</string>
+    <string name="moderately_active">Moderately Active</string>
+    <string name="active">Active</string>
+    <string name="very_active">Very Active</string>
+    <string name="your_gender">Your Gender</string>
+    <string name="how_activ_are_you">How activ are you?</string>
+    <string name="calculate">Calculate</string>
+    <string name="lose_weight">Lose Weight</string>
+    <string name="keep_weight">Keep Weight</string>
+    <string name="gain_weight">Gain Weight</string>
+    <string name="benutzername_hint" />
+    <string name="benutzername_content_description" />
+    <string name="passwort_hint" />
+    <string name="passwort_content_description" />
+    <string name="registrieren" />
+    <string name="registrieren_content_description" />
+</resources>
