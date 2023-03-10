@@ -15,18 +15,18 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private EditText fmNameEditText;
-    private EditText mPortionSizeEditText;
-    private EditText mCaloriesPer100gEditText;
-    private Button mAddFoodButton, mLogOutButton;
-    private Button mCalculateCaloriesButton;
+    private EditText etNahrungsmittel;
+    private EditText etPortionGröße;
+    private EditText etkalorienPro100g;
+    private Button addButton, logOutButton;
+    private Button berechneteKalorienButton;
 
 
     // Liste, um alle hinzugefügten Lebensmittel zu speichern
-    private List<FoodItem> mFoodItemList = new ArrayList<>();
+    private List<Nahrungsmittel> nahrungsmittelListe = new ArrayList<>();
 
 
-    private TextView totalCaloriesTextView;
+    private TextView tvgesamtKalorien;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,15 +34,15 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        fmNameEditText = findViewById(R.id.foodNameEditText);
-        mPortionSizeEditText = findViewById(R.id.portionSizeEditText);
-        mCaloriesPer100gEditText = findViewById(R.id.caloriesPer100gEditText);
-        mAddFoodButton = findViewById(R.id.addFoodButton);
-        mCalculateCaloriesButton = findViewById(R.id.calculateCaloriesButton);
-        mLogOutButton = findViewById(R.id.btnLogout);
-        totalCaloriesTextView = findViewById(R.id.totalCaloriesTextView);
+        etNahrungsmittel = findViewById(R.id.foodNameEditText);
+        etPortionGröße = findViewById(R.id.portionSizeEditText);
+        etkalorienPro100g = findViewById(R.id.caloriesPer100gEditText);
+        addButton = findViewById(R.id.addFoodButton);
+        berechneteKalorienButton = findViewById(R.id.calculateCaloriesButton);
+        logOutButton = findViewById(R.id.btnLogout);
+        tvgesamtKalorien = findViewById(R.id.totalCaloriesTextView);
 
-        mLogOutButton.setOnClickListener(view -> {
+        logOutButton.setOnClickListener(view -> {
             Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(intent);
         });
@@ -51,30 +51,30 @@ public class HomeActivity extends AppCompatActivity {
 
 
     // Funktion, um ein neues Lebensmittel zur Liste hinzuzufügen
-    public void addFoodItem(View view) {
-        String foodName = fmNameEditText.getText().toString();
-        double portionSize = Double.parseDouble(mPortionSizeEditText.getText().toString());
-        int caloriesPer100g = Integer.parseInt(mCaloriesPer100gEditText.getText().toString());
+    public void addNahrungsmittel(View view) {
+        String nahrungsmittel = etNahrungsmittel.getText().toString();
+        double portionGröße = Double.parseDouble(etPortionGröße.getText().toString());
+        int kalorienPro100g = Integer.parseInt(etkalorienPro100g.getText().toString());
 
-        FoodItem foodItem = new FoodItem(foodName, portionSize, caloriesPer100g);
-        mFoodItemList.add(foodItem);
+        Nahrungsmittel Nahrungsmittel = new Nahrungsmittel(nahrungsmittel, portionGröße, kalorienPro100g);
+        nahrungsmittelListe.add(Nahrungsmittel);
 
         // Zurücksetzen der EditText-Felder
-        fmNameEditText.setText("");
-        mPortionSizeEditText.setText("");
-        mCaloriesPer100gEditText.setText("");
+        etNahrungsmittel.setText("");
+        etPortionGröße.setText("");
+        etkalorienPro100g.setText("");
     }
 
     // Funktion, um die Gesamtkalorienzahl aller Lebensmittel in der Liste zu berechnen
-    public void calculateTotalCalories(View view) {
-        int totalCalories = 0;
-        for (FoodItem foodItem : mFoodItemList) {
-            double portionSize = foodItem.getPortionSize();
-            int caloriesPer100g = foodItem.getCaloriesPer100g();
-            double calories = portionSize / 100 * caloriesPer100g;
-            totalCalories += calories;
+    public void berechneGesamtKlorien(View view) {
+        int gesamtKalorien = 0;
+        for (Nahrungsmittel Nahrungsmittel : nahrungsmittelListe) {
+            double portionGröße = Nahrungsmittel.getPortionGröße();
+            int kalorienPro100g = Nahrungsmittel.getKalorienPro100g();
+            double calories = portionGröße / 100 * kalorienPro100g;
+            gesamtKalorien += calories;
         }
 
-        totalCaloriesTextView.setText(String.valueOf(totalCalories));
+        tvgesamtKalorien.setText(String.valueOf(gesamtKalorien));
     }
 }

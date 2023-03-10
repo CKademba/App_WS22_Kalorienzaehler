@@ -13,8 +13,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
    // Deklariere notwendige Ansichten und Hilfsklassen
-    private EditText etUsername, etPassword;
-    private Button btnLogin, btnRegister;
+    private EditText etBenutzername, etPasswort;
+    private Button btnAnmelden, btnRegistrieren;
     private DBHelper dbHelper;
 
     @Override
@@ -25,18 +25,18 @@ public class LoginActivity extends AppCompatActivity {
         // Initialisiere DBHelper-Klasse für die Interaktion mit der Datenbank
         dbHelper = new DBHelper(this);
 
-        etUsername = findViewById(R.id.etUsername);
-        etPassword = findViewById(R.id.etPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnRegister = findViewById(R.id.btnRegister);
+        etBenutzername = findViewById(R.id.etUsername);
+        etPasswort = findViewById(R.id.etPassword);
+        btnAnmelden = findViewById(R.id.btnLogin);
+        btnRegistrieren = findViewById(R.id.btnRegister);
 
         // Setze OnClickListener für den Login-Button
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnAnmelden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Hole eingegebenen Benutzernamen und das Passwort
-                String username = etUsername.getText().toString().trim();
-                String password = etPassword.getText().toString().trim();
+                String username = etBenutzername.getText().toString().trim();
+                String password = etPasswort.getText().toString().trim();
 
                 // Überprüfe, ob Benutzerdaten in der Datenbank existieren
                 if (dbHelper.checkUser(username, password)) {
@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // Setze OnClickListener für den Registrieren-Button
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        btnRegistrieren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegistrierenActivity.class);

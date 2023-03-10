@@ -16,11 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class DataActivity extends AppCompatActivity {
 
     // Deklarieren der benötigten Variablen
-    EditText etAge, etHeight, etWeight;
-    RadioGroup rgGender, rgActivityLevel, rgGoal;
-    RadioButton rbMale, rbFemale, rbSedentary, rbModeratelyActive, rbActive, rbVeryActive, rbLoseWeight, rbKeepWeight, rbGainWeight;
-    TextView tvResult;
-    Button btnCalculate;
+    EditText etAlter, etGroeße, etGewicht;
+    RadioGroup rgGeschlecht, rgAktivitaetslevel, rgZiel;
+    RadioButton rbMännlich, rbWeiblich, rbSitzend, rbMäßigAktiv, rbAktiv, rbSehrAktiv, rbAbnehmen, rbGewichtHalten, rbZunehmen;
+    TextView tvErgebnis;
+    Button btnBerechnen;
 
     // Überschreiben der onCreate Methode
 
@@ -30,109 +30,109 @@ public class DataActivity extends AppCompatActivity {
         setContentView(R.layout.activity_data);
 
         // Zuweisen der UI-Elemente zu den Variablen
-        etAge = findViewById(R.id.etAge);
-        etHeight = findViewById(R.id.etHeight);
-        etWeight = findViewById(R.id.etWeight);
+        etAlter = findViewById(R.id.etAge);
+        etGroeße = findViewById(R.id.etHeight);
+        etGewicht = findViewById(R.id.etWeight);
 
-        rgGender = findViewById(R.id.rgGender);
-        rbMale = findViewById(R.id.rbMale);
-        rbFemale = findViewById(R.id.rbFemale);
+        rgGeschlecht = findViewById(R.id.rgGender);
+        rbMännlich = findViewById(R.id.rbMale);
+        rbWeiblich = findViewById(R.id.rbFemale);
 
-        rgActivityLevel = findViewById(R.id.rgActivityLevel);
-        rbSedentary = findViewById(R.id.rbSedentary);
-        rbModeratelyActive = findViewById(R.id.rbModeratelyActive);
-        rbActive = findViewById(R.id.rbActive);
-        rbVeryActive = findViewById(R.id.rbVeryActive);
+        rgAktivitaetslevel = findViewById(R.id.rgActivityLevel);
+        rbSitzend = findViewById(R.id.rbSedentary);
+        rbMäßigAktiv = findViewById(R.id.rbModeratelyActive);
+        rbAktiv = findViewById(R.id.rbActive);
+        rbSehrAktiv = findViewById(R.id.rbVeryActive);
 
-        rgGoal = findViewById(R.id.rgGoal);
-        rbLoseWeight = findViewById(R.id.rbLoseWeight);
-        rbKeepWeight = findViewById(R.id.rbKeepWeight);
-        rbGainWeight = findViewById(R.id.rbGainWeight);
-
-
-        tvResult = findViewById(R.id.tvResult);
+        rgZiel = findViewById(R.id.rgGoal);
+        rbAbnehmen = findViewById(R.id.rbLoseWeight);
+        rbGewichtHalten = findViewById(R.id.rbKeepWeight);
+        rbZunehmen = findViewById(R.id.rbGainWeight);
 
 
-        btnCalculate = findViewById(R.id.btnCalculate);
+        tvErgebnis = findViewById(R.id.tvResult);
+
+
+        btnBerechnen = findViewById(R.id.btnCalculate);
 
         // Hinzufügen eines OnClickListener für den Button
-        btnCalculate.setOnClickListener(new View.OnClickListener() {
+        btnBerechnen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DataActivity.this, ProfileActivity.class);
 
                 // Auslesen der eingegebenen Daten
-                double age = Double.parseDouble(etAge.getText().toString());
-                double height = Double.parseDouble(etHeight.getText().toString());
-                double weight = Double.parseDouble(etWeight.getText().toString());
+                double age = Double.parseDouble(etAlter.getText().toString());
+                double height = Double.parseDouble(etGroeße.getText().toString());
+                double weight = Double.parseDouble(etGewicht.getText().toString());
 
                 // Berechnung des Grundumsatzes
-                double bmr;
+                double kcal;
 
-                if (rbMale.isChecked()) {
-                    bmr = 66.47 + (13.75 * weight) + (5 * height) - (6.8 * age);
+                if (rbMännlich.isChecked()) {
+                    kcal = 66.47 + (13.75 * weight) + (5 * height) - (6.8 * age);
                 } else {
-                    bmr = 655.1 + (9.6 * weight) + (1.8 * height) - (4.7 * age);
+                    kcal = 655.1 + (9.6 * weight) + (1.8 * height) - (4.7 * age);
                 }
 
                 // Bestimmung des Aktivitätsfaktors
-                double activityFactor = 1.2;
+                double activityLevel = 1.2;
 
-                if (rbSedentary.isChecked()) {
-                    activityFactor = 1.375;
-                } else if (rbModeratelyActive.isChecked()) {
-                    activityFactor = 1.55;
-                } else if (rbActive.isChecked()) {
-                    activityFactor = 1.725;
-                } else if (rbVeryActive.isChecked()) {
-                    activityFactor = 1.9;
+                if (rbSitzend.isChecked()) {
+                    activityLevel = 1.375;
+                } else if (rbMäßigAktiv.isChecked()) {
+                    activityLevel = 1.55;
+                } else if (rbAktiv.isChecked()) {
+                    activityLevel = 1.725;
+                } else if (rbSehrAktiv.isChecked()) {
+                    activityLevel = 1.9;
                 }
 
                 // Berechnung der benötigten Kalorien
-                double calories = bmr * activityFactor;
+                double calories = activityLevel * kcal;
 
-                if (rbLoseWeight.isChecked()) {
+                if (rbAbnehmen.isChecked()) {
                     calories = calories - 500;
-                } else if (rbKeepWeight.isChecked()) {
+                } else if (rbGewichtHalten.isChecked()) {
                     calories = calories + 0;
-                } else if (rbGainWeight.isChecked()) {
+                } else if (rbZunehmen.isChecked()) {
                     calories = calories + 300;
                 }
 
                 String selectedRadioButtonGender = "";
 
                 // Überprüft, welcher RadioButton in der Gruppe "Gender" ausgewählt wurde
-                if (rbMale.isChecked()) {
-                    selectedRadioButtonGender = rbMale.getText().toString();
-                } else if (rbFemale.isChecked()) {
-                    selectedRadioButtonGender = rbFemale.getText().toString();
+                if (rbMännlich.isChecked()) {
+                    selectedRadioButtonGender = rbMännlich.getText().toString();
+                } else if (rbWeiblich.isChecked()) {
+                    selectedRadioButtonGender = rbWeiblich.getText().toString();
                 }
 
                 String selectedRadioButtonActivity = "";
 
                 // Überprüft, welcher RadioButton in der Gruppe "Activity Level" ausgewählt wurde
-                if (rbSedentary.isChecked()) {
-                    selectedRadioButtonActivity = rbSedentary.getText().toString();
-                } else if (rbModeratelyActive.isChecked()) {
-                    selectedRadioButtonActivity = rbModeratelyActive.getText().toString();
-                } else if (rbActive.isChecked()) {
-                    selectedRadioButtonActivity = rbActive.getText().toString();
-                } else if (rbVeryActive.isChecked()) {
-                    selectedRadioButtonActivity = rbVeryActive.getText().toString();
+                if (rbSitzend.isChecked()) {
+                    selectedRadioButtonActivity = rbSitzend.getText().toString();
+                } else if (rbMäßigAktiv.isChecked()) {
+                    selectedRadioButtonActivity = rbMäßigAktiv.getText().toString();
+                } else if (rbAktiv.isChecked()) {
+                    selectedRadioButtonActivity = rbAktiv.getText().toString();
+                } else if (rbSehrAktiv.isChecked()) {
+                    selectedRadioButtonActivity = rbSehrAktiv.getText().toString();
                 }
 
                 String selectedRadioButtonGoal = "";
 
                 // Überprüft, welcher RadioButton in der Gruppe "Goal" ausgewählt wurde
-                if (rbLoseWeight.isChecked()) {
-                    selectedRadioButtonGoal = rbLoseWeight.getText().toString();
-                } else if (rbKeepWeight.isChecked()) {
-                    selectedRadioButtonGoal = rbKeepWeight.getText().toString();
-                } else if (rbGainWeight.isChecked()) {
-                    selectedRadioButtonGoal = rbGainWeight.getText().toString();
+                if (rbAbnehmen.isChecked()) {
+                    selectedRadioButtonGoal = rbAbnehmen.getText().toString();
+                } else if (rbGewichtHalten.isChecked()) {
+                    selectedRadioButtonGoal = rbGewichtHalten.getText().toString();
+                } else if (rbZunehmen.isChecked()) {
+                    selectedRadioButtonGoal = rbZunehmen.getText().toString();
                 }
 
-                tvResult.setText(String.format("%.2f", + calories));
+                tvErgebnis.setText(String.format("%.2f", + calories));
 
                 // Fügt die ausgewählten RadioButton-Texte als Extra in den Intent hinzu
                 intent.putExtra("selectedRadioButtonGender", selectedRadioButtonGender);
@@ -140,10 +140,10 @@ public class DataActivity extends AppCompatActivity {
                 intent.putExtra("selectedRadioButtonGoal", selectedRadioButtonGoal);
 
                 // Fügt die vom Benutzer eingegebenen Werte als Extra in den Intent hinzu
-                intent.putExtra("Age", etAge.getText().toString());
-                intent.putExtra("Height", etHeight.getText().toString());
-                intent.putExtra("Weight", etWeight.getText().toString());
-                intent.putExtra("result", tvResult.getText().toString());
+                intent.putExtra("Age", etAlter.getText().toString());
+                intent.putExtra("Height", etGroeße.getText().toString());
+                intent.putExtra("Weight", etGewicht.getText().toString());
+                intent.putExtra("result", tvErgebnis.getText().toString());
 
                 startActivity(intent);
             }
